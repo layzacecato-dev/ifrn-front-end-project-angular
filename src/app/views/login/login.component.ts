@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RequestLogin } from 'src/app/resources/models/RequestLogin';
 import { LoginService } from 'src/app/resources/services/login.service';
 import { AlertService } from 'src/app/resources/services/alert.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.requestLogin! = new RequestLogin();
+    this.requestLogin = new RequestLogin();
   }
 
   public doLogin(): void {
@@ -31,6 +32,6 @@ export class LoginComponent implements OnInit {
       error: (httpError) => {
         this.alertService.error(httpError.error.message); 
       }
-    });
+   });
   }
 }
